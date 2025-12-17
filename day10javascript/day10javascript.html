@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Task 1:.Create an array of employees with name, age, and position.</h1>
+    <script>
+        let employee=[{ name:"sathish",age:35,position:"design Engineer"},
+                       {name:"Deepak",age:40,position:"Manager"},
+                       {name:"Kumar",age:25,position:"Testing"} 
+                       
+        ];
+        console.log(employee);
+        document.write(employee);
+    </script><hr>
+
+    <h1>Task 2:Fetch and display a list of products from an API. </h1>
+    <h1>Products</h1>
+  <ul id="product-list"></ul>
+    <script>
+       const apiURL = 'https://fakestoreapi.com/products';
+
+    fetch(apiURL)
+      .then(response => response.json())
+      .then(products => {
+        const list = document.getElementById('product-list');
+
+        products.forEach(product => {
+          const listItem = document.createElement('li');
+          listItem.textContent = `${product.title} - $${product.price}`;
+          list.appendChild(listItem);
+        });
+      })
+
+    </script><hr>
+    <h1>Task 3:Sort an array of objects by age in ascending order.</h1>
+    <script>
+        let people = [
+  { name: "Ravi", age: 32 },
+  { name: "Anita", age: 25 },
+  { name: "Kumar", age: 40 },
+  { name: "Meena", age: 28 }
+];
+
+people.sort((a, b) => a.age - b.age);
+
+console.log(people);
+document.write(people);
+    </script><hr>
+
+  <h1>task 4:Filter an array to show only students with grade 'A'.</h1>  
+  <script>
+    let student = [ {name:"kavi",age:22,grade:"B"},
+                    {name:"Mala",age:25,grade:"A"},
+                    {name:"Dharani",age:20,grade:"C"}
+    ];
+    let students = student.filter(student => student.grade=="A");
+    console.log(students);
+    document.write(students);
+  </script><hr>
+
+  <h1>Task 5:Find a specific product in an array by name</h1>
+  <script>
+    let products = [
+  { name: "Laptop", price: 50000 },
+  { name: "Mobile", price: 20000 },
+  { name: "Tablet", price: 15000 },
+  { name: "Headphones", price: 3000 }
+];
+const productName = "Mobile";
+
+const result = products.find(product => product.name === productName);
+
+console.log(result);
+document.write(result);
+  </script><hr>
+
+  <h1>Task 6:Convert an array of objects to only an array of names.</h1>
+  <script>
+    const peoples = [
+  { name: "Ravi", age: 28 },
+  { name: "Anita", age: 32 },
+  { name: "Karthik", age: 25 },
+  { name: "Meena", age: 35 }
+];
+const names = peoples.map(person => person.name);
+
+console.log(names);
+  </script><hr>
+
+  <h1>task 7:Modify an object inside an array and update its value. </h1>
+  <script>
+    let stud= [ {name:"kavi",age:22,grade:"B"},
+                    {name:"Mala",age:25,grade:"A"},
+                    {name:"Dharani",age:20,grade:"C"}
+    ];
+
+    stud[1].grade="A+";
+    console.log(stud[1]);
+  </script><hr>
+
+
+  <h1>Task 8:Count how many objects meet a specific condition.</h1>
+  <script>
+    const students1 = [
+  { name: "Ravi", marks: 85 },
+  { name: "Anita", marks: 72 },
+  { name: "Kumar", marks: 90 },
+  { name: "Meena", marks: 60 }
+];
+const count = students1.filter(student => student.marks >= 75).length;
+
+console.log(count);
+  </script><hr>
+
+  <h1>Task 9:.Implement a search function to find objects dynamically. </h1>
+  <input type="text" id="searchInput" placeholder="Type name..." />
+  <ul id="resultList"></ul>
+  <script>
+     const products1 = [
+        { name: "Laptop", price: 50000 },
+        { name: "Mobile", price: 20000 },
+        { name: "Tablet", price: 15000 },
+        { name: "Headphones", price: 3000 }
+    ];
+
+    const input = document.getElementById("searchInput");
+    const result1 = document.getElementById("result1");
+
+    input.addEventListener("input", function () {
+        const searchText = input.value.toLowerCase();
+        result.innerHTML = "";
+
+        const filteredProducts = products.filter(product =>
+            product.name.toLowerCase().includes(searchText)
+        );
+
+        filteredProducts.forEach(product => {
+            const li = document.createElement("li");
+            li.textContent = product.name + " - ₹" + product.price;
+            result.appendChild(li);
+        });
+    });
+  </script><hr>
+
+  <h1>Task 10:Group objects based on a property value. </h1>
+  <script>
+    let  people1 = [
+  { name: "Alice", city: "London" },
+  { name: "Bob", city: "Paris" },
+  { name: "Charlie", city: "London" },
+  { name: "David", city: "Paris" },
+  { name: "Eve", city: "New York" }
+];
+
+const grouped = people1.reduce((acc, person) => {
+  (acc[person.city] = acc[person.city] || []).push(person);
+  return acc;
+}, {});
+
+console.log(grouped);
+  </script><hr>
+
+  <h1>Task 11:Remove a specific object from an array by property</h1>
+  <script>
+    let users = [
+  { id: 1, name: "Alice" },
+  { id: 2, name: "Bob" },
+  { id: 3, name: "Charlie" },
+  { id: 4, name: "David" }
+];
+users = users.filter(user => user.id !== 2);
+
+console.log(users);
+  </script><hr>
+
+  <h1>Task 12:Add new objects dynamically to an array. </h1>
+  <script>
+    let user = [
+  { id: 1, name: "Alice" },
+  { id: 2, name: "Bob" }
+];
+
+function addUser(id, name) {
+  users.push({ id: id, name: name });
+}
+addUser(3, "Charlie");
+addUser(4, "David");
+
+console.log(user);
+  </script><hr>
+  <h1>Task 13:Merge two arrays of objects.</h1>
+  <script>
+   let arr1 =[ {name:"vani"}];
+   let arr2 =[ {name:"sathish"}];
+
+   let merge= arr1.concat(arr2);
+   console.log(merge);
+
+  </script><hr>
+
+  <h1>Task 14:Clone an array of objects without affecting the original.</h1>
+  <script>
+    let original =[{ name:"Apple" },
+                   {name:"Banana"}
+    ];
+    let clone= original.map(item =>({item}));
+    clone[0].name="Orange";
+    console.log(original);
+    console.log(clone);
+  </script><hr>
+  <h1>Task 15:Create a function to calculate the total stock in an inventory.</h1>
+  <script>
+    function calculateTotalStockArray(inventory) {
+  const totalStock = inventory.reduce((accumulator, currentItem) => {
+    return accumulator + currentItem.quantity;
+  }, 0);
+
+  return totalStock;
+}
+const warehouseInventory = [
+  { id: 'item001', name: 'Laptop', quantity: 50 },
+  { id: 'item002', name: 'Mouse', quantity: 150 },
+  { id: 'item003', name: 'Keyboard', quantity: 75 },
+  { id: 'item004', name: 'Monitor', quantity: 30 }
+];
+
+const total = calculateTotalStockArray(warehouseInventory);
+console.log(`Total Stock: ${total}`);
+  </script>
+</html>
